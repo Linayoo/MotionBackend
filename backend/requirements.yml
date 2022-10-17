@@ -1,0 +1,14 @@
+name: motion_assignment
+dependencies:
+  - python=3.9.12
+  - pip=21.2.4
+  - psycopg2
+  - pip:
+      - django==4.1.1
+      - djangorestframework==3.14.0
+      - djangorestframework_simplejwt==5.2.1
+      - drf-yasg==1.21.4
+      - pillow==9.2.0
+      - flake8
+      - gunicorn==20.1.0
+      - coverage==6.5.0
