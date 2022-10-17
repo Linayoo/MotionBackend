@@ -11,6 +11,8 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -
 RUN mkdir -p /backend
 
 COPY backend /backend
+COPY ./scripts /scripts
+RUN chmod +x ./scripts
 
 RUN conda env create -f /backend/requirements.yml
 RUN conda update -n base -c defaults conda
