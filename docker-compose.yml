@@ -1,7 +1,7 @@
 version: '3'
 services:
   backend:
-    image: motion_assignment_img:latest
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-21-aug-2022/motion-backend-groups/team-4/team4motion:latest
     tty: true
     ports:
       - 8001:8000
