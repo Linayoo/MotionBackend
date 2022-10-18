@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-d764a!!iw#*d^*=oj(p@!swbs4oq4%20t55n&5d8u96wq@fz$2"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
 CSRF_TRUSTED_ORIGINS = ['http://207.154.255.79/', 'http://team4motion.propulsion-learn.ch/']
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
