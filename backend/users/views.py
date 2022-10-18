@@ -5,6 +5,7 @@ from users.serializers import UserSerializer
 
 
 class LoggedInUserProfileView(GenericAPIView):
-    queryset = User
-    serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+    def get(self, request):
+        queryset = User.objects.filter(id=request.id)
+        serializer_class = UserSerializer
+        permission_classes = [IsAuthenticated]
