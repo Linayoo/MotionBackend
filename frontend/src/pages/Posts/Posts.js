@@ -25,9 +25,6 @@ function Posts(){
         "Authorization": `Bearer ${authState}`,
         'content-type': 'application/json'
     })
-
-
-
     const config = {
         method: method,
         headers: headers
@@ -42,6 +39,7 @@ function Posts(){
                 postURLEnding="friends/"
             }
         }
+        console.log("token used on post page "+ authState)
         fetch("https://motion.propulsion-home.ch/backend/api/social/posts/"+postURLEnding,config)
             .then(response=>response.json())
             .then(data=> {
@@ -49,7 +47,6 @@ function Posts(){
                 if (data.results){
                     setPosts(data.results)
                 }
-
             })
             .catch((error)=>console.log(error))
     }

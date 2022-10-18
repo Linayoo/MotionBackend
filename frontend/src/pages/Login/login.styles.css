@@ -190,6 +190,7 @@ body .content {
     border-radius: 9999px;
     height: 12px;
     width: 12px;
+    cursor: pointer;
 
 
 
@@ -206,3 +207,6 @@ body .content {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.errorCodeText{
+    color: purple;
+}
