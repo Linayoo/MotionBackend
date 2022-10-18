@@ -45,7 +45,7 @@ function Posts(){
         fetch("https://motion.propulsion-home.ch/backend/api/social/posts/"+postURLEnding,config)
             .then(response=>response.json())
             .then(data=> {
-                console.log(data.results)
+                console.log("about to fetch post")
                 if (data.results){
                     setPosts(data.results)
                 }
@@ -81,6 +81,7 @@ function Posts(){
         fetch("https://motion.propulsion-home.ch/backend/api/social/posts/",config)
             .then(response=>response.json())
             .then(data=> {
+
                 fetchPosts()
                 changeModalStatus()
                 // set the last edited post text back to empty

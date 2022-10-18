@@ -47,6 +47,7 @@ function RightPanelRegisterForm(){
         }).catch((error)=>{
             navigate("/access/")
             alert("register failed")
+            console.log(error)
         })
     }
 
