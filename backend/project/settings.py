@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-d764a!!iw#*d^*=oj(p@!swbs4oq4%20t55n&5d8u96wq@fz$2
 DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
-CSRF_TRUSTED_ORIGINS = ['http://207.154.255.79/', 'https://team4motion.propulsion-learn.ch/']
+CSRF_TRUSTED_ORIGINS = ['http://207.154.255.79/', 'https://team4motion.propulsion-learn.ch']
 
 AUTH_USER_MODEL = 'users.User'
 
