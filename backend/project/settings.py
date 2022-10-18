@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
 CSRF_TRUSTED_ORIGINS = ['http://207.154.255.79/', 'http://team4motion.propulsion-learn.ch/']
 
+AUTH_USER_MODEL = 'users.User'
 
 # Application definition
 
@@ -40,8 +41,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # Apps
+    "users",
+    "posts",
+
     # DRF
-    'rest_framework',
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
