@@ -1,11 +1,11 @@
-from rest_framework.generics import GenericAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.generics import ListAPIView
 from users.models import User
 from users.serializers import UserSerializer
 
 
-class LoggedInUserProfileView(GenericAPIView):
-    def get(self, request):
-        queryset = User.objects.filter(id=request.id)
-        serializer_class = UserSerializer
-        permission_classes = [IsAuthenticated]
+class LoggedInUserProfileView(ListAPIView):
+    serializer = UserSerializer
+
+    def get_queryset(self):
+        queryset = User.objects.filter(id=self.request.user)
+        return queryset
