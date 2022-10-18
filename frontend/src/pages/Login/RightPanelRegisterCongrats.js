@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 
-function RightPanelRegisterAuthCode(){
+function RightPanelRegisterCongrats(){
 
 
     return (
@@ -29,4 +29,4 @@ function RightPanelRegisterAuthCode(){
     )
 }
 
-export default RightPanelRegisterAuthCode
+export default RightPanelRegisterCongrats

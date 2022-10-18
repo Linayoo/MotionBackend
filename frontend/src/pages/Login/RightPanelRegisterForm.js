@@ -31,6 +31,7 @@ function RightPanelRegisterForm(){
     const updateUserNameInput=(event)=>{
         setUserName(event.target.value)
     }
+    const [errorCodeDisplay,setErrorCode]=useState("")
 
     const userRegister=(emailInput,code,passwordInput,firstName,lastName,userNameInput)=>{
         myAxios.patch("/auth/registration/validation/",{
@@ -45,12 +46,19 @@ function RightPanelRegisterForm(){
             console.log(response)
             navigate("/access/")
         }).catch((error)=>{
-            navigate("/access/")
-            alert("register failed")
             console.log(error)
+            setErrorCode("Error occurred")
+            try{
+                setErrorCode(JSON.stringify(error.response.data))
+            }catch (error){
+                alert("get code failed and error unknown")
+            }
+
         })
     }
-
+    const swtichToGetCode=()=>{
+        navigate("/access/signup/")
+    }
     return (
         <div className="login">
             <div className="login-header">Verification</div>
@@ -67,9 +75,10 @@ function RightPanelRegisterForm(){
 
             <div className="login-button" onClick={()=>userRegister(emailInput,code,passwordInput,firstName,lastName,userNameInput)}>COMPLETE</div>
 
+            {errorCodeDisplay?<div className="errorCodeText">{errorCodeDisplay}</div>:<div></div>}
 
             <ul className="dots">
-                <li className="dots__item"></li>
+                <li className="dots__item" onClick={swtichToGetCode}></li>
                 <li className="dots__item"></li>
                 <li className="dots__item active"></li>
             </ul>

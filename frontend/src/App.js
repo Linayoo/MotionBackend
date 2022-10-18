@@ -7,7 +7,7 @@ import LoginRoot from "./pages/Login/LoginRoot"
 import RightPanelLogin from "./pages/Login/RightPanelLogin";
 import RightPanelRegister from "./pages/Login/RightPanelRegister";
 import RightPanelRegisterGetEmail from "./pages/Login/RightPanelRegisterGetEmail";
-import RightPanelRegisterAuthCode from "./pages/Login/RightPanelRegisterAuthCode";
+import RightPanelRegisterCongrats from "./pages/Login/RightPanelRegisterCongrats";
 import RightPanelRegisterForm from "./pages/Login/RightPanelRegisterForm";
 // import Profile components
 import Profile from "./pages/Profile/Profile"
@@ -32,9 +32,27 @@ function App() {
             const user = JSON.parse(userFromLs)
             if(user.email && user.token){
                 dispatch(setUser(user))
+                // try use the token to see if this token is still valied
+
+                const headers = new Headers({
+                    "Authorization": `Bearer ${user.token}`,
+                    'content-type': 'application/json'
+                })
+                const config = {
+                    method: "GET",
+                    headers: headers
+                }
+                // testing if this token works
+                fetch("https://motion.propulsion-home.ch/backend/api/users/me/",config)
+                    .then(response=>response.json())
+                    .then(data=> {
+                        console.log("token valid")
+                    })
+                    .catch((error)=>navigate("/access"))
                 return
             }
         }
+        // if this function has not stoped by the return by now, navigate to access
         navigate("/access")
     },[])
     return (
@@ -47,7 +65,7 @@ function App() {
                     <Route path={""} element={<RightPanelLogin/>}></Route>
                     <Route path={"signup"} element={<RightPanelRegister/>}>
                         <Route path={""} element={<RightPanelRegisterGetEmail/>}></Route>
-                        <Route path={"authcode"} element={<RightPanelRegisterAuthCode/>}></Route>
+                        <Route path={"authcode"} element={<RightPanelRegisterCongrats/>}></Route>
                         <Route path={"form"} element={<RightPanelRegisterForm/>}></Route>
                     </Route>
                 </Route>
