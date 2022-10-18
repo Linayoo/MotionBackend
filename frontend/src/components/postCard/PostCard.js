@@ -5,22 +5,19 @@ import {makeConfig} from "../../axios"
 import {useSelector} from "react-redux";
 function PostCard(props){
     const token = useSelector(state => state.user.token)
-    const [postLikedStatus,setPostLikedStatus]=useState(false)
+    const [postLikedStatus,setPostLikedStatus]=useState(props.post.logged_in_user_liked)
+    console.log("post id: "+props.id +" is liked: " + postLikedStatus)
     const toggleLikeAPost = (id) =>{
         fetch("https://motion.propulsion-home.ch/backend/api/social/posts/toggle-like/"+id+"/",makeConfig("POST",token))
             .then(response=>response.json())
             .then(data=>{
                 console.log("like sent")
-                setPostLikedStatus(!props.post.logged_in_user_liked)
+                setPostLikedStatus(!postLikedStatus)
+                console.log(!postLikedStatus)
             })
             .catch(error=>alert("send request failed"))
     }
-    const heartActiveStyle={
-        color:"white",
-    }
-    useEffect(() => {
 
-    }, [postLikedStatus])
 
     return(
         <div className="card postCard">
@@ -58,7 +55,9 @@ function PostCard(props){
                 <div className="icons">
                     <span className="icon-text" onClick={()=>toggleLikeAPost(props.id)}>
                       <span className="icon">
-                          <i className="fas fa-heart"></i>
+                          <i className="fas fa-heart" style={{
+                              color: postLikedStatus ? 'mediumpurple' : '',
+                          }}></i>
                       </span>
                       <span>Like</span>
                     </span>

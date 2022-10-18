@@ -14,7 +14,10 @@ function RightPanelRegisterGetEmail(){
     const getCode=(email)=>{
         myAxios.post("/auth/registration/",{email:email}).then(response=>{
             navigate("/access/signup/authcode")
-        }).catch(()=>alert("get code failed"))
+        }).catch((error)=>{
+            alert("get code failed")
+                console.log(error)}
+           )
     }
 
     return (
