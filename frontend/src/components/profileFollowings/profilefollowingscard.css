@@ -1,0 +1,233 @@
+* {
+    /*border: 1px solid red;*/
+}
+
+.PFIcontainer {
+    min-height: auto;
+    background-color: lightgray;
+    position: relative;
+}
+
+.PFIcontent {
+    position: relative;
+    top: -100px;
+    height: fit-content;
+    width: 1400px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 50px;
+    justify-content: space-evenly;
+}
+
+.PFIcover {
+    position: relative;
+    width: 100vw;
+    height: 300px;
+    overflow: hidden;
+}
+
+.PFIcover img {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    margin: auto;
+}
+
+.PFIprofilecard {
+    background-color: white;
+    width: 1152px;
+    height: 362px;
+    top: -150px;
+    left: 50%;
+    display: flex;
+    flex-direction: row;
+    transform: translate(-50%, 0);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    position: relative;
+    /*overflow: hidden;*/
+}
+
+.PFIprofileCardLeft {
+    width: 320px;
+    height: 360px;
+    border-right: 2px solid rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PFIprofileCardLeft img {
+    width: 85px;
+    height: 85px;
+    border-radius: 42.5px;
+    margin-top: 28px;
+}
+
+.PFIname {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.PFIlocation {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.PFIfollow {
+    margin-top: 30px;
+}
+
+.PFIadd {
+    margin-top: 16px;
+}
+
+.PFIfollow,
+.PFIadd {
+    width: 158px;
+    height: 40px;
+    font-size: 9px;
+    font-weight: 400;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 30px;
+    background-color: white;
+}
+
+.PFIfollow:hover,
+.PFIadd:hover {
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0);
+}
+
+.PFIprofileCardRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.PFIabout {
+    width: 832px;
+    height: 222px;
+    border-bottom: 2px solid rgb(0, 0, 0, .1);
+    display: flex;
+    flex-direction: row;
+}
+
+.PFIdescription {
+    width: 450px;
+    height: 222px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PFIdescriptionbox {
+    width: 450px;
+    height: 152px;
+}
+
+.PFIinterests {
+    width: 382px;
+    height: 222px;
+}
+
+.PFInavigation {
+    width: 832px;
+    height: 138px;
+}
+
+.PFIdescription h1,
+.PFIinterests h1 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.PFIdescription p {
+    padding-right: 70px;
+    margin-left: 60px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.PFIdescription h1 {
+    margin-left: 60px;
+    margin-top: 40px;
+}
+
+.PFIinterests h1 {
+    margin-top: 40px;
+    margin-bottom: 22px;
+}
+
+.asd {
+    display: flex;
+    flex: row;
+}
+
+.PFIinterests p {
+    background: rgba(0, 0, 0, .1);
+    mix-blend-mode: normal;
+    border-radius: 18px;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 9px 14px;
+    margin-right: 10px;
+}
+
+.PFInavigation {
+    width: 832px;
+    height: 138px;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-between;
+}
+
+.PFInavigation > a,
+.PFInavigation > div {
+    width: 20%;
+    color: black;
+}
+
+.PFInavigation > a > h1,
+.PFInavigation > div > h1 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 50px;
+    color:rgb(0, 0, 0, .5);
+}
+
+.PFInavigation > a > p,
+.PFInavigation > div > p {
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-bottom: 7px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.PFInavigation > a:hover,
+.PFInavigation > div:hover {
+    background-image: url('../navBar/assets/selector.png');
+    background-position: 50px 130px;
+    background-repeat: no-repeat;
+    background-size: 100px 5px;
+    cursor: pointer;
+}
+
+.PFInavigation > div {
+    background-image: url('../navBar/assets/selected.png');
+    background-position: 50px 130px;
+    background-repeat: no-repeat;
+    background-size: 100px 5px;
+}

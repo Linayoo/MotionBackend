@@ -1,0 +1,69 @@
+.PPEcontainer {
+    width: 180px;
+    height: 96px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: absolute;
+    left: 65px;
+    top: 230px;
+    z-index: 10;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 20px 40px rgba(0, 0, 0, 0.15);
+
+}
+
+.PPEupload,
+.PPEremove {
+    width: 180px;
+    height: 40px;
+    border: none;
+    background-color: white;
+}
+
+.PPEupload {
+    background-image: url('./assets/upload.svg');
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 23px 11px;
+}
+
+.PPEupload::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+/*.PPEupload::before{
+    user-select: none;
+    content: 'Upload';
+    -webkit-user-select: none;
+    display: inline-block;
+    white-space: nowrap;
+}*/
+
+.PPEupload::before {
+    content: 'Upload';
+    display: inline-block;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    padding-left: 66px;
+    padding-top: 10px;
+    color:black;
+}
+
+.PPEremove {
+    background-image: url('./assets/remove.svg');
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 23px 11px;
+}
+
+.PPEupload:hover,
+.PPEremove:hover {
+    background-color: rgb(200, 200, 200);
+    cursor: pointer;
+}

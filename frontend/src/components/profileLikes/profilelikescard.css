@@ -1,0 +1,214 @@
+* {
+    /*border: 1px solid red;*/
+}
+
+.PLcover {
+    position: relative;
+    width: 100vw;
+    height: 300px;
+    overflow: hidden;
+}
+
+.PLcover img {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    margin: auto;
+}
+
+.PLprofilecard {
+    width: 1152px;
+    height: 360px;
+    background-color: white;
+    position: absolute;
+    top: 230px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .1)
+}
+
+.PLprofileCardLeft {
+    width: 320px;
+    height: 360px;
+    border-right: 2px solid rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PLprofileCardLeft img {
+    width: 85px;
+    height: 85px;
+    border-radius: 42.5px;
+    margin-top: 28px;
+}
+
+.PLname {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.PLlocation {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.PLfollow {
+    margin-top: 30px;
+}
+
+.PLadd {
+    margin-top: 16px;
+}
+
+.PLfollow,
+.PLadd {
+    width: 158px;
+    height: 40px;
+    font-size: 9px;
+    font-weight: 400;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 30px;
+    background-color: white;
+}
+
+.PLfollow:hover,
+.PLadd:hover {
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0);
+}
+
+.PLprofileCardRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.PLabout {
+    width: 832px;
+    height: 222px;
+    border-bottom: 2px solid rgb(0, 0, 0, .1);
+    display: flex;
+    flex-direction: row;
+}
+
+.PLdescription {
+    width: 450px;
+    height: 222px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PLdescriptionbox {
+    width: 450px;
+    height: 152px;
+}
+
+.PLinterests {
+    width: 382px;
+    height: 222px;
+}
+
+.PLnavigation {
+    width: 832px;
+    height: 138px;
+}
+
+.PLdescription h1,
+.PLinterests h1 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.PLdescription p {
+    padding-right: 70px;
+    margin-left: 60px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.PLdescription h1 {
+    margin-left: 60px;
+    margin-top: 40px;
+}
+
+.PLinterests h1 {
+    margin-top: 40px;
+    margin-bottom: 22px;
+}
+
+.asd {
+    display: flex;
+    flex: row;
+}
+
+.PLinterests p {
+    background: rgba(0, 0, 0, .1);
+    mix-blend-mode: normal;
+    border-radius: 18px;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 9px 14px;
+    margin-right: 10px;
+}
+
+.PLnavigation {
+    width: 832px;
+    height: 138px;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-between;
+}
+
+.PLnavigation > a,
+.PLnavigation > div {
+    width: 20%;
+    color: black;
+}
+
+.PLnavigation > a > h1,
+.PLnavigation > div > h1 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 50px;
+    color:rgb(0, 0, 0, .5);
+}
+
+.PLnavigation > a > p,
+.PLnavigation > div > p {
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-bottom: 7px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.PLnavigation > a:hover,
+.PLnavigation > div:hover {
+    background-image: url('../navBar/assets/selector.png');
+    background-position: 50px 132px;
+    background-repeat: no-repeat;
+    background-size: 100px 5px;
+    cursor: pointer;
+}
+
+.PLnavigation > div {
+    background-image: url('../navBar/assets/selected.png');
+    background-position: 50px 132px;
+    background-repeat: no-repeat;
+    background-size: 100px 5px;
+}

@@ -1,0 +1,232 @@
+* {
+    /*border: 1px solid red;*/
+}
+
+.PPCcontainer {
+    min-height: auto;
+    background-color: lightgray;
+    position: relative;
+}
+
+.PPCcontent {
+    position: relative;
+    top: -100px;
+    height: fit-content;
+    width: 1400px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    justify-content: space-evenly;
+}
+
+.PPCcover {
+    position: relative;
+    width: 100vw;
+    height: 300px;
+    overflow: hidden;
+}
+
+.PPCcover img {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    margin: auto;
+}
+
+.PPCprofilecard {
+    position: relative;
+    background-color: white;
+    width: 1152px;
+    height: 362px;
+    top: -150px;
+    left: 50%;
+    display: flex;
+    flex-direction: row;
+    transform: translate(-50%, 0);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.PPCprofileCardLeft {
+    width: 320px;
+    height: 360px;
+    border-right: 2px solid rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PPCprofileCardLeft img {
+    width: 85px;
+    height: 85px;
+    border-radius: 42.5px;
+    margin-top: 28px;
+}
+
+.PPCname {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.PPClocation {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.PPCfollow {
+    margin-top: 30px;
+}
+
+.PPCadd {
+    margin-top: 16px;
+}
+
+.PPCfollow,
+.PPCadd {
+    width: 158px;
+    height: 40px;
+    font-size: 9px;
+    font-weight: 400;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 30px;
+    background-color: white;
+}
+
+.PPCfollow:hover,
+.PPCadd:hover {
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0);
+}
+
+.PPCprofileCardRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.PPCabout {
+    width: 832px;
+    height: 222px;
+    border-bottom: 2px solid rgb(0, 0, 0, .1);
+    display: flex;
+    flex-direction: row;
+}
+
+.PPCdescription {
+    width: 450px;
+    height: 222px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PPCdescriptionbox {
+    width: 450px;
+    height: 152px;
+}
+
+.PPCinterests {
+    width: 382px;
+    height: 222px;
+}
+
+.PPCnavigation {
+    width: 832px;
+    height: 138px;
+}
+
+.PPCdescription h1,
+.PPCinterests h1 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.PPCdescription p {
+    padding-right: 70px;
+    margin-left: 60px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.PPCdescription h1 {
+    margin-left: 60px;
+    margin-top: 40px;
+}
+
+.PPCinterests h1 {
+    margin-top: 40px;
+    margin-bottom: 22px;
+}
+
+.asd {
+    display: flex;
+    flex: row;
+}
+
+.PPCinterests p {
+    background: rgba(0, 0, 0, .1);
+    mix-blend-mode: normal;
+    border-radius: 18px;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 9px 14px;
+    margin-right: 10px;
+}
+
+.PPCnavigation {
+    width: 832px;
+    height: 138px;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-between;
+}
+
+.PPCnavigation > a,
+.PPCnavigation > div {
+    width: 20%;
+    color: black;
+}
+
+.PPCnavigation > a > h1,
+.PPCnavigation > div > h1 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 50px;
+    color:rgb(0, 0, 0, .5);
+}
+
+.PPCnavigation > a > p,
+.PPCnavigation > div > p {
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-bottom: 7px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.PPCnavigation > a:hover,
+.PPCnavigation > div:hover {
+    background-image: url('../navBar/assets/selector.png');
+    background-position: 50px 130px;
+    background-repeat: no-repeat;
+    background-size: 100px 5px;
+    cursor: pointer;
+}
+
+.PPCnavigation > div {
+    background-image: url('../navBar/assets/selected.png');
+    background-position: 50px 130px;
+    background-repeat: no-repeat;
+    background-size: 100px 5px;
+}

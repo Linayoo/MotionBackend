@@ -1,0 +1,222 @@
+* {
+    /*border: 1px solid red;*/
+}
+
+.PEcardcontainer {
+    min-height: calc(100vh - 80px);
+    /* change bg color to dynamic color !!!*/
+    background-color: lightgray;
+    position: relative;
+}
+
+.PEcover {
+    position: relative;
+    width: 100vw;
+    height: 700px;
+    overflow: hidden;
+}
+
+.PEcover img {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    margin: auto;
+}
+
+.editCard {
+    width: 1152px;
+    height: 730px;
+    background-color: white;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .1)
+}
+
+.editCardLeft img {
+    width: 85px;
+    height: 85px;
+    border-radius: 42.5px;
+    margin-top: 60px;
+}
+
+.editCardLeft {
+    height: 730px;
+    width: 320px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid rgba(0, 0, 0, .1);
+}
+
+.PEupdate {
+    margin-top: 25px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 30px;
+    font-size: 9px;
+    font-weight: 400;
+    background: white;
+    height: 40px;
+    width: 155px;
+    cursor: pointer;
+}
+
+.PEupdate:hover,
+.PEdelete:hover {
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.PEdelete {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 30px;
+    font-size: 9px;
+    font-weight: 400;
+    height: 48px;
+    width: 202px;
+    cursor: pointer;
+    margin-top: 345px;
+}
+
+.PEsave {
+    background: linear-gradient(132.96deg, #C468FF 3.32%, #6E91F6 100%);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 30px;
+    font-size: 9px;
+    font-weight: 400;
+    height: 48px;
+    width: 202px;
+    cursor: pointer;
+    border: none;
+    margin-top: 15px;
+}
+
+.PEsave:hover {
+    background: linear-gradient(132.96deg, #6E91F6 3.32%, #C468FF 100%);
+}
+
+.editCardRight {
+    width: 832px;
+    height: 730px;
+}
+
+.cardRightTop {
+    display: flex;
+    flex-direction: row;
+    width: 832px;
+    height: 470px;
+}
+
+.topLeft>label,
+.topRight>label {
+    color: rgba(0, 0, 0, .5);
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 40px;
+}
+
+.topLeft>input,
+.topRight>input {
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    line-height: 26px;
+    padding-bottom: 13px;
+}
+
+.topLeft>input:focus,
+.topRight>input:focus {
+    outline: none;
+}
+
+.topLeft,
+.topRight {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 320px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.topLeft textarea {
+    height: 98px;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    resize: none;
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+    outline: none;
+}
+
+.cardRightBottom {
+    width: 832px;
+    height: 260px;
+}
+
+.cardRightBottom h1 {
+    margin-top: 40px;
+    margin-left: 60px;
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+}
+
+.PEinterests {
+    display: flex;
+    flex-direction: row;
+    margin-left: 60px;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-direction: row;
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.interestsList {
+    width: 600px;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+    font-size: 16px;
+    font-weight: 400;
+    padding-bottom: 13px;
+    outline: none;
+    margin-top: 40px;
+    color: rgba(0, 0, 0, .5);
+}
+
+.PEaddbutton {
+    background: white;
+    width: 75px;
+    height: 32px;
+    font-size: 9px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 30px;
+    margin-left: 25px;
+}
+
+.PEaddbutton:hover {
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.PEphone::-webkit-outer-spin-button,
+.PEphone::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -1,0 +1,72 @@
+.friendsPage{
+    background-color: lightgray;
+    min-height:100vh
+}
+
+.friendCards{
+    padding: 20px;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.friendCard{
+    width: 370px;
+    display: flex;
+    justify-content: center;
+    margin:5px;
+    align-items: flex-start;
+
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-image{
+    background-color:lightgray;
+    height: 100% !important;
+    line-height: 43px;
+    border-radius: 999px;
+    text-align: center;
+    color:white;
+    font-size: 25px;
+
+}
+
+.user-location{
+    font-size: 0.9rem;
+    color: grey;
+}
+
+.buttons{
+    margin-top: 15px;
+}
+.button{
+    border-radius: 20px !important;
+}
+.user-name{
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+.user-bio{
+    font-size: 0.9rem;
+}
+
+.hobbies{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}
+
+.is-following{
+    background-image: linear-gradient(to right bottom, #6f00c0, #4868cb);
+    color:white;
+}

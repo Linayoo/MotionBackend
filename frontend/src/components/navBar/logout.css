@@ -1,0 +1,45 @@
+.logoutcontainer {
+    width: 180px;
+    height: 96px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: absolute;
+    right: 35px;
+    top: 70px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.profile,
+.logout {
+    width: 180px;
+    height: 40px;
+    border: none;
+    background-color: white;
+    color: black;
+}
+
+.profile {
+    background-image: url('../../assets/svgs/profile.svg');
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 23px 11px;
+}
+
+.logout {
+    background-image: url('../../assets/svgs/logout.svg');
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 23px 11px;
+}
+
+.profile:hover,
+.logout:hover {
+    background-color: rgb(200, 200, 200);
+    cursor: pointer;
+}

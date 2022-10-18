@@ -1,0 +1,138 @@
+.posts-page{
+    min-height: 100vh;
+    background-color: whitesmoke;
+}
+
+.posts-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-bar{
+    : none;
+}
+
+.panel{
+    box-shadow:none !important;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 10px 40px 0px 40px;
+}
+
+.input-search-box{
+    width: 200px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none !important;
+}
+
+.input-search-box:focus{
+    border: none;
+    outline: none;
+}
+
+.input-search-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: grey;
+    opacity: 1; /* Firefox */
+}
+
+
+.postCards{
+    width: 80%;
+    padding: 0px 40px 30px 40px;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*gap: 30px;*/
+    /*align-items: flex-start;*/
+    column-count: 2;
+
+}
+
+.postCard{
+    width: 400px !important;
+    box-shadow: none;
+    margin-bottom: 30px;
+    break-inside: avoid-column;
+}
+.card-header{
+    box-shadow: none;
+}
+.is-size-7{
+    font-weight: normal;
+}
+.card-content>.content{
+    font-size: 0.8rem;
+
+}
+.card-content{
+    padding:1rem !important;
+}
+
+.icons{
+    margin:10px;
+    display:flex;
+    column-gap: 10px;
+    font-size: 0.9rem;
+    padding: 5px 5px 5px 5px;
+}
+
+.post-images{
+    object-fit: cover;
+}
+
+.send_post_button{
+    background-image: linear-gradient(to right, #6f00c0, #4868cb);;
+    height: 30px;
+    padding:7px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+.send_new_post_card{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between!important;
+
+}
+
+.new_post_text_outside{
+    width: 70%;
+    border: none;
+}
+
+.new_post_text_outside:focus{
+    border: none;
+    outline: none;
+}
+
+.new_post_modal_header{
+    display: flex;
+    justify-content: flex-end;
+    height: 10px;
+}
+.new_post_modal_body{
+    display: flex;
+    column-gap: 20px;
+
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.fa-image{
+    cursor: pointer;
+}
+
+.modal-card-foot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+.icons{
+
+}

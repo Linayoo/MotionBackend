@@ -135,3 +135,7 @@ GitHub.sublime-settings
 !.vscode/launch.json
 !.vscode/extensions.json
 .history
+
+
+## frontend part
+# refers to the gitignore inside of frontend
