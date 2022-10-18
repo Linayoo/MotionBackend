@@ -8,7 +8,7 @@ RUN apt-get install nginx -y
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
 
 RUN mkdir -p /backend
-#RUN mkdir -p /scripts
+RUN mkdir -p /scripts
 RUN mkdir -p /static-files
 RUN mkdir -p /media-files
 RUN mkdir -p /frontend
