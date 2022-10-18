@@ -12,3 +12,4 @@ dependencies:
       - flake8
       - gunicorn==20.1.0
       - coverage==6.5.0
+      - django-cors-headers
