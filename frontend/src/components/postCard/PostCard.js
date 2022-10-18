@@ -26,7 +26,7 @@ function PostCard(props){
                     <div className="media">
                         <div className="media-left">
                             <figure className="image is-48x48">
-                                <img className="avatar is-rounded" src={props.post.user.avatar} alt="user avatar image"/>
+                                {props.post.user.avatar === null ? <div className="avatar-image">{props.post.user.first_name[0]}</div> : <img className="is-rounded" src={props.post.user.avatar} />}
                             </figure>
                         </div>
                         <div className="media-content">
