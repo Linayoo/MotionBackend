@@ -1,0 +1,214 @@
+* {
+    /*border: 1px solid red;*/
+}
+
+.PFEcover {
+    position: relative;
+    width: 100vw;
+    height: 300px;
+    overflow: hidden;
+}
+
+.PFEcover img {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    margin: auto;
+}
+
+.PFEprofilecard {
+    width: 1152px;
+    height: 360px;
+    background-color: white;
+    position: absolute;
+    top: 230px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .1)
+}
+
+.PFEprofileCardLeft {
+    width: 320px;
+    height: 360px;
+    border-right: 2px solid rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PFEprofileCardLeft img {
+    width: 85px;
+    height: 85px;
+    border-radius: 42.5px;
+    margin-top: 28px;
+}
+
+.PFEname {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.PFElocation {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.PFEfollow {
+    margin-top: 30px;
+}
+
+.PFEadd {
+    margin-top: 16px;
+}
+
+.PFEfollow,
+.PFEadd {
+    width: 158px;
+    height: 40px;
+    font-size: 9px;
+    font-weight: 400;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 30px;
+    background-color: white;
+}
+
+.PFEfollow:hover,
+.PFEadd:hover {
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0);
+}
+
+.PFEprofileCardRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.PFEabout {
+    width: 832px;
+    height: 222px;
+    border-bottom: 2px solid rgb(0, 0, 0, .1);
+    display: flex;
+    flex-direction: row;
+}
+
+.PFEdescription {
+    width: 450px;
+    height: 222px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PFEdescriptionbox {
+    width: 450px;
+    height: 152px;
+}
+
+.PFEinterests {
+    width: 382px;
+    height: 222px;
+}
+
+.PFEnavigation {
+    width: 832px;
+    height: 138px;
+}
+
+.PFEdescription h1,
+.PFEinterests h1 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.PFEdescription p {
+    padding-right: 70px;
+    margin-left: 60px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.PFEdescription h1 {
+    margin-left: 60px;
+    margin-top: 40px;
+}
+
+.PFEinterests h1 {
+    margin-top: 40px;
+    margin-bottom: 22px;
+}
+
+.asd {
+    display: flex;
+    flex: row;
+}
+
+.PFEinterests p {
+    background: rgba(0, 0, 0, .1);
+    mix-blend-mode: normal;
+    border-radius: 18px;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 9px 14px;
+    margin-right: 10px;
+}
+
+.PFEnavigation {
+    width: 832px;
+    height: 138px;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-between;
+}
+
+.PFEnavigation > a,
+.PFEnavigation > div {
+    width: 20%;
+    color: black;
+}
+
+.PFEnavigation > a > h1,
+.PFEnavigation > div > h1 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 50px;
+    color:rgb(0, 0, 0, .5);
+}
+
+.PFEnavigation > a > p,
+.PFEnavigation > div > p {
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-bottom: 7px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.PFEnavigation > a:hover,
+.PFEnavigation > div:hover {
+    background-image: url('../navBar/assets/selector.png');
+    background-position: 50px 132px;
+    background-repeat: no-repeat;
+    background-size: 100px 5px;
+    cursor: pointer;
+}
+
+.PFEnavigation > div {
+    background-image: url('../navBar/assets/selected.png');
+    background-position: 50px 132px;
+    background-repeat: no-repeat;
+    background-size: 100px 5px;
+}

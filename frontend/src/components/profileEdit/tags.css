@@ -1,0 +1,44 @@
+.tagContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.leftHalf {
+    background: rgba(0, 0, 0, .1);
+    width: 18px;
+    height: 39px;
+    border-radius: 18px 0px 0px 18px;
+}
+
+.tagText {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    background: rgba(0, 0, 0, .1);
+    padding: 9px 0px 9px 0px;
+}
+
+.rightHalf {
+    background: rgba(0, 0, 0, .1);
+    width: 30px;
+    height: 39px;
+    border-radius: 0px 18px 18px 0px;
+    border: none;
+    background-image: url('./assets/delete.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/*    background: rgba(0, 0, 0, .1);
+    mix-blend-mode: normal;
+    border-radius: 18px;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 9px 30px 9px 14px;
+    margin-right: 10px;
+    background-image: url('./assets/delete.png');
+    background-repeat: no-repeat;
+    background-position:  center;
+}*/

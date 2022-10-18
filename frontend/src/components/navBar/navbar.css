@@ -1,0 +1,136 @@
+/*author Levi, last revision: Sep-19, 23:00*/
+
+* {
+    /*border: 1px solid red;*/
+}
+
+.navContainer {
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+}
+
+.home,
+.findFriends,
+.posts,
+.notifications {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.home {
+    margin-left: 40px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    color: black;
+    height: 100%;
+}
+
+.home:hover,
+.findFriends:hover,
+.posts:hover {
+    cursor: pointer;
+    background-image: url('./assets/selector.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.homelogo {
+    width: 26px;
+    height: 26px;
+    margin-right: 12px;
+}
+
+.postslogo {
+    margin-right: 19px;
+}
+
+.posts {
+    margin-left: 113px;
+    height: 100%;
+}
+
+.poststext,
+.friendstext {
+    font-size: 16px;
+    font-weight: 400;
+    columns: black;
+}
+
+.friendslogo {
+    margin-right: 17px;
+}
+
+.findFriends {
+    margin-left: 73px;
+    height: 100%;
+}
+
+.notifications {
+    margin-left: auto;
+    margin-right: 60px;
+    width: 40px;
+    height: 40px;
+}
+
+.notiNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    background: linear-gradient(132.96deg, #c468ff 3.32%, rgb(110, 145, 246) 100%);
+    width: 21px;
+    height: 21px;
+    border-radius: 10px;
+    align-self: flex-start;
+}
+
+
+.edit {
+    margin-right: 50px;
+    margin-left: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-image: url('../../assets/svgs/menu.svg');
+    background-repeat: no-repeat;
+    border: none;
+    background-color: white;
+    background-position: center;
+    cursor: pointer;
+
+}
+
+.edit:hover {
+    background-color: rgb(200, 200, 200);
+}
+
+.test {
+    width: 800px;
+    height: 800px;
+    background-color: black;
+}
+
+.notification-requests{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+}
+.bell{
+    cursor: pointer;
+}
+img.avatar{
+    height:100% !important;
+    object-fit: cover;
+    cursor: pointer;
+}
