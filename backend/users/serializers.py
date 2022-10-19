@@ -2,7 +2,7 @@ from users.models import User
 from rest_framework import serializers
 
 
-class UserSerializer(serializers.Serializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        exclude = ["id", "last_login", "is_superuser", "is_staff", "is_active", "date_joined", "created", "updated"]
