@@ -9,13 +9,8 @@ class LoggedInUserProfileView(ListAPIView):
     serializer_class = UserSerializer
 
     def get_queryset(self):
-        queryset = User.objects.filter(id=self.request.user)
+        queryset = User.objects.filter(id=self.request.user.id)
         return queryset
 
-
-class GetAllUsers(ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [AllowAny]
 
 

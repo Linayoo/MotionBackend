@@ -23,7 +23,7 @@ class User(AbstractUser):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.username
+        return f'{self.id}: {self.username}'
 
 
 class FriendRequest(models.Model):
