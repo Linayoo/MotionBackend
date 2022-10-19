@@ -5,20 +5,25 @@ import {makeConfig} from "../../axios"
 import {useSelector} from "react-redux";
 function PostCard(props){
     const token = useSelector(state => state.user.token)
-    const [postLikedStatus,setPostLikedStatus]=useState(props.post.logged_in_user_liked)
-    console.log("post id: "+props.id +" is liked: " + postLikedStatus)
+    // set default use parent input
+    const [singlePostLikedStatus,setPostLikedStatus]=useState(props.post.logged_in_user_liked)
+
+
+    console.log("post id: "+props.id +" is liked: " + singlePostLikedStatus)
     const toggleLikeAPost = (id) =>{
         fetch("https://motion.propulsion-home.ch/backend/api/social/posts/toggle-like/"+id+"/",makeConfig("POST",token))
             .then(response=>response.json())
             .then(data=>{
                 console.log("like sent")
-                setPostLikedStatus(!postLikedStatus)
-                console.log(!postLikedStatus)
+                console.log("about to fetch post again")
+                fetch("https://motion.propulsion-home.ch/backend/api/social/posts/toggle-like/"+id+"/",makeConfig("GET",token))
+                    .then(response=>response.json())
+                    .then(data=>{
+                        setPostLikedStatus(data.logged_in_user_liked)
+                    }).catch(error=>console.log("api call for update like status changed"))
             })
             .catch(error=>alert("send request failed"))
     }
-
-
     return(
         <div className="card postCard">
             <div className="card-header">
@@ -56,7 +61,7 @@ function PostCard(props){
                     <span className="icon-text" onClick={()=>toggleLikeAPost(props.id)}>
                       <span className="icon">
                           <i className="fas fa-heart" style={{
-                              color: postLikedStatus ? 'mediumpurple' : '',
+                              color: singlePostLikedStatus ? 'mediumpurple' : '',
                           }}></i>
                       </span>
                       <span>Like</span>

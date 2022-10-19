@@ -19,6 +19,9 @@ import ProfileFollowers from './pages/Profile/ProfileFollowers';
 import ProfileFollowings from './pages/Profile/ProfilesFollowing';
 import Friends from "./pages/Freinds/Friends";
 
+// import testing page
+import Test from "./pages/Test/Test";
+
 import {setUser} from "./redux/userSlice/userSlice";
 import {useDispatch} from "react-redux";
 
@@ -31,7 +34,6 @@ function App() {
         if (userFromLs) {
             const user = JSON.parse(userFromLs)
             if(user.email && user.token){
-                dispatch(setUser(user))
                 // try use the token to see if this token is still valied
 
                 const headers = new Headers({
@@ -48,7 +50,13 @@ function App() {
                     .then(data=> {
                         console.log("token valid")
                     })
-                    .catch((error)=>navigate("/access"))
+                    .catch((error)=>{
+                        console.log("--navigate to access (token not working with users/me)")
+                        navigate("/access")
+                        return
+                    })
+                console.log("this line should not appear behind --navigate to access (token not working with users/me)")
+                dispatch(setUser(user))
                 return
             }
         }
@@ -60,6 +68,7 @@ function App() {
             <Routes>
                 {/*the home page is the posts page*/}
                 <Route path={"/"} element={<Posts/>}></Route>
+                <Route path={"/testing"} element={<Test/>}></Route>
                 <Route path={"/friends"} element={<Friends/>}></Route>
                 <Route path={"/access"} element={<LoginRoot/>}>
                     <Route path={""} element={<RightPanelLogin/>}></Route>
