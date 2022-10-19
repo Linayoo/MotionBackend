@@ -1,5 +1,6 @@
-from users.models import User
 from rest_framework import serializers
+
+from users.models import User, FriendRequest
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -18,3 +19,9 @@ class RetrieveFolloweeSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['following']
+
+
+class FriendRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FriendRequest
+        fields = '__all__'
