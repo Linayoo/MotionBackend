@@ -1,23 +1,18 @@
-from rest_framework.generics import ListAPIView, GenericAPIView
-from rest_framework.response import Response
-
+from rest_framework.generics import RetrieveUpdateAPIView, get_object_or_404
 from users.models import User
 from users.serializers import UserSerializer
 
 
-# GET:
-class LoggedInUserProfileView(ListAPIView):
+# GET & PATCH: /api/users/me/
+class LoggedInUserProfileView(RetrieveUpdateAPIView):
     serializer_class = UserSerializer
+    queryset = User.objects.all()
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        obj = get_object_or_404(queryset,id=self.request.user.id)
+        return obj
 
     def get_queryset(self):
-        queryset = User.objects.filter(id=self.request.user.id)
+        queryset = User.objects.all()
         return queryset
-
-
-class UpdateLoggedInUserProfile(GenericAPIView):
-    queryset = User
-    serializer_class = UserSerializer
-
-    def patch(self, request, *args, **kwargs):
-        user = self.get_object()
-        return Response(self.get_serializer(user).data)
