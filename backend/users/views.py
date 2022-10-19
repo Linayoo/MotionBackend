@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView, UpdateAPIView
+from rest_framework.generics import ListAPIView
 from users.models import User
 from users.serializers import UserSerializer
 
