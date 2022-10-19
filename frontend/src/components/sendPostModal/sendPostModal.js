@@ -29,6 +29,7 @@ function NewPostModal(props){
                     <figure className="image is-48x48">
                         <img className="avatar is-rounded" src={myAvatarUrl} alt="user avatar image"/>
                     </figure>
+
                     <input type="text" value={props.text} className="new_post_text_outside"/>
 
                 </section>

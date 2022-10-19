@@ -1,29 +1,34 @@
 import React, {useEffect, useState} from "react";
 import "./PostCard.style.css"
-import {newFriendRequest} from "../../redux/userSlice/userSlice";
 import {makeConfig} from "../../axios"
 import {useSelector} from "react-redux";
 function PostCard(props){
     const token = useSelector(state => state.user.token)
-    // set default use parent input
-    const [singlePostLikedStatus,setPostLikedStatus]=useState(props.post.logged_in_user_liked)
-
-
-    console.log("post id: "+props.id +" is liked: " + singlePostLikedStatus)
+    // this is different from the heart liked or not status, it is only within this component, and only for loading status
+    const [heartLoadingStatus,setHeartLoadingStatus]=useState(false)
+    let heartColorClass=props.post.logged_in_user_liked?"isLiked":""
+    if (heartLoadingStatus){
+        heartColorClass="heartIsLoading"
+    }
+    // const retrieveSinglePost=(id)=>{
+    //     fetch("https://motion.propulsion-home.ch/backend/api/social/posts/"+id+"/",makeConfig("GET",token))
+    //         .then(response=>response.json())
+    //         .then(data=>{
+    //             setLikedStatus(data.logged_in_user_liked)
+    //         }).catch(error=>console.log("api call for update like status changed"))
+    // }
     const toggleLikeAPost = (id) =>{
+        setHeartLoadingStatus(true)
         fetch("https://motion.propulsion-home.ch/backend/api/social/posts/toggle-like/"+id+"/",makeConfig("POST",token))
             .then(response=>response.json())
             .then(data=>{
                 console.log("like sent")
                 console.log("about to fetch post again")
-                fetch("https://motion.propulsion-home.ch/backend/api/social/posts/toggle-like/"+id+"/",makeConfig("GET",token))
-                    .then(response=>response.json())
-                    .then(data=>{
-                        setPostLikedStatus(data.logged_in_user_liked)
-                    }).catch(error=>console.log("api call for update like status changed"))
+                props.newFetch().then(()=>setHeartLoadingStatus(false))
             })
             .catch(error=>alert("send request failed"))
     }
+
     return(
         <div className="card postCard">
             <div className="card-header">
@@ -31,7 +36,7 @@ function PostCard(props){
                     <div className="media">
                         <div className="media-left">
                             <figure className="image is-48x48">
-                                <img className="avatar is-rounded" src={props.post.user.avatar} alt="user avatar image"/>
+                                {props.post.user.avatar === null ? <div className="avatar-image">{props.post.user.first_name[0]}</div> : <img className="is-rounded" src={props.post.user.avatar} />}
                             </figure>
                         </div>
                         <div className="media-content">
@@ -55,14 +60,11 @@ function PostCard(props){
                         <img className="post-images" src={props.post.images[0].image} alt="post images"/>
                     </figure>
                 </div>:<div/>}
-            //TODO: change the color of the icons when rendering the post depending on whether it is liked or not
             <div className="card-footer">
                 <div className="icons">
                     <span className="icon-text" onClick={()=>toggleLikeAPost(props.id)}>
                       <span className="icon">
-                          <i className="fas fa-heart" style={{
-                              color: singlePostLikedStatus ? 'mediumpurple' : '',
-                          }}></i>
+                          <i className={`fas fa-heart ${heartColorClass}`}></i>
                       </span>
                       <span>Like</span>
                     </span>

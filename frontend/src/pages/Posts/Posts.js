@@ -9,17 +9,17 @@ import send_svg from "../../assets/svgs/send_button.svg"
 import NewPostModal from "../../components/sendPostModal/sendPostModal";
 import {changeModalVisibility} from "../../redux/postModalSlice/postModalSlice";
 import {changeLastEditedPostText} from "../../redux/userSlice/userSlice";
+import {setPostArray} from "../../redux/postSlice/postSlice";
 
 function Posts(){
     const dispatch= useDispatch()
 
-    const [posts, setPosts]=useState([])
     const [newPostImage,setNewPostImage]=useState()
     const [panelState,setPanelState]=useState("Mine")
     const lastEditedPostText=useSelector(state=>state.user.lastEditedPostText)
     const authState = useSelector(state => state.user.token)
     const myAvatarUrl=useSelector(state=>state.user.avatarURL)
-
+    const posts=useSelector(state=>state.post.postArray)
     const method = "GET"
     const headers = new Headers({
         "Authorization": `Bearer ${authState}`,
@@ -40,12 +40,12 @@ function Posts(){
             }
         }
         console.log("token used on post page "+ authState)
-        fetch("https://motion.propulsion-home.ch/backend/api/social/posts/"+postURLEnding,config)
+        return fetch("https://motion.propulsion-home.ch/backend/api/social/posts/"+postURLEnding,config)
             .then(response=>response.json())
             .then(data=> {
                 console.log("about to fetch post")
                 if (data.results){
-                    setPosts(data.results)
+                    dispatch(setPostArray(data.results))
                 }
             })
             .catch((error)=>console.log(error))
@@ -131,7 +131,7 @@ function Posts(){
                         </div>
                     </div>
                     {posts.map(post=>{
-                        return <PostCard post={post} id={post.id}></PostCard>
+                        return <PostCard post={post} id={post.id} newFetch={fetchPosts} ></PostCard>
                     })}
                 </div>
             </div>
