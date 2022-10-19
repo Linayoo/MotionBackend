@@ -7,7 +7,7 @@ urlpatterns = [
     path("backend/", include('users.urls')),
 
     # JWT
-    path('token/', views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', views.TokenRefreshView.as_view(), name='token_refresh'),
-    path('token/verify/', views.TokenVerifyView.as_view(), name='token_verify'),
+    path('backend/token/', views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('backend/token/refresh/', views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('backend/token/verify/', views.TokenVerifyView.as_view(), name='token_verify'),
 ]
