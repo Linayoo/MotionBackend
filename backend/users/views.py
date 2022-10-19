@@ -1,6 +1,4 @@
 from rest_framework.generics import ListAPIView
-from rest_framework.permissions import AllowAny
-
 from users.models import User
 from users.serializers import UserSerializer
 
@@ -13,4 +11,9 @@ class LoggedInUserProfileView(ListAPIView):
         return queryset
 
 
-
+# class UpdateLoggedInUserProfile(UpdateAPIView):
+#     serializer_class = UserSerializer
+#
+#     def Patch(self, request, *args, *kwargs):
+#         queryset = User.objects.filter(id=self.request.user.id)
+#         return
