@@ -19,6 +19,7 @@ RUN chmod +x ./scripts
 
 RUN conda env create -f /backend/requirements.yml
 ENV PATH /opt/conda/envs/motion_assignment/bin:$PATH
+RUN conda update -n base -c defaults conda
 RUN echo "source activate motion_assignment">~/.bashrc
 
 WORKDIR /frontend

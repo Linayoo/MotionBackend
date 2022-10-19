@@ -1,7 +1,7 @@
 version: '3'
 services:
   backend:
-    image: registry.gitlab.propulsion-home.ch/full-stack/batch-21-aug-2022/motion-backend-groups/team-4/team4motion:latest
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-21-aug-2022/motion-backend-groups/team-4/team4motion:master
     env_file:
       - ./envs/prod.env
     command: "sh /scripts/prod.sh"
