@@ -48,3 +48,8 @@ class ListLoggedInUserFollowees(RetrieveAPIView):
     def get_queryset(self):
         queryset = User.objects.all()
         return queryset
+
+
+# api/social/friends/request/int:friends_id/
+# POST: Send friend request to another user
+# class SendFriendRequest(CreateAPIView):
