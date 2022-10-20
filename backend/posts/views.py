@@ -1,3 +1,21 @@
-# from django.shortcuts import render
-#
-# # Create your views here.
+from rest_framework.generics import ListCreateAPIView
+
+from posts.models import Post
+from posts.serializers import PostSerializer
+
+# Create your views here.
+"""
+api/social/posts/ POST: user can create a new post by sending post data. He should also be able to share another post.
+"""
+
+# ListCreateAPIView is for multiple views
+class ListCreatePostView(ListCreateAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        query_set = Post.objects.all()
+        return query_set
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
