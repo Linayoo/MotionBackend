@@ -5,6 +5,7 @@ from rest_framework_simplejwt import views
 urlpatterns = [
     path("backend/admin/", admin.site.urls),
     path("backend/", include('users.urls')),
+    path("backend/api/social/posts/", include('posts.urls')),
 
     # JWT
     path('backend/token/', views.TokenObtainPairView.as_view(), name='token_obtain_pair'),

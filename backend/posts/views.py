@@ -1,4 +1,4 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from posts.models import Post
 from posts.serializers import PostSerializer
@@ -17,5 +17,14 @@ class ListCreatePostView(ListCreateAPIView):
         return query_set
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+        serializer.save(creator=self.request.user)
+
+
+# class RetrieveUpdateDestroyPostView(RetrieveUpdateDestroyAPIView):
+#     queryset = Post.object.all()
+#     serializer_class = PostSerializer
+#     lookup_field = 'post_id'
+#     permission_classes = [isAuthor]
+
+
 
