@@ -27,9 +27,10 @@ class User(AbstractUser):
 
 
 class FriendRequest(models.Model):
-    requested_by = models.ForeignKey(User, blank=True, on_delete=models.CASCADE, related_name="requested_by")
-    requested_to = models.ForeignKey(User, blank=True, on_delete=models.CASCADE, related_name="requested_to")
+    requested_by = models.ForeignKey(User, blank=True, on_delete=models.CASCADE, related_name="friend_requested_by")
+    requested_to = models.ForeignKey(User, blank=True, on_delete=models.CASCADE, related_name="friend_requested_to")
     created = models.DateTimeField(auto_now_add=True)
+    friend_request_status = models.CharField(max_length=100, default="Pending")
 
 
 class RegistrationProfile(models.Model):
