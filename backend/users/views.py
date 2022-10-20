@@ -5,8 +5,9 @@ from rest_framework.response import Response
 from django.db import DatabaseError
 
 from users.models import User, FriendRequest
+from users.permissions import IsReceiver
 from users.serializers import UserSerializer, RetrieveFollowerSerializer, RetrieveFolloweeSerializer, \
-    FriendRequestSerializer, FriendRequestDetailsSerializer
+    FriendRequestSerializer
 
 
 # GET & PATCH: /api/users/me/
@@ -84,17 +85,54 @@ class SendFriendRequest(ListCreateAPIView):
 
 # api/social/friends/requests/<int:friend_request_id>/
 # GET: Get details of a friend request
-class FriendRequestDetails(RetrieveAPIView):
-    serializer_class = FriendRequestDetailsSerializer
+# PATCH: Accept or Reject an open friend request
+class FriendRequestDetailsAndAccept(RetrieveUpdateAPIView):
+    queryset = FriendRequest.objects.all()
+    serializer_class = FriendRequestSerializer
+    lookup_field = "id"
+    permission_classes = [IsReceiver]
 
-    def get_queryset(self):
-        return FriendRequest.objects.filter(requested_to=self.request.user.id)
+    # def patch(self, request, *args, **kwargs):
+    #     if request.data.get("friend_request_status") == "Accepted":
+    #         friend_request_id = kwargs["id"]
+    #         friend_request = FriendRequest.objects.get(id=friend_request_id)
+    #         requestee = friend_request.requested_to
+    #         requester = friend_request.requested_by
+    #         requestee.friends.add(requester)
+    #         requester.friends.add(requestee)
+    #         return Response(data="friend request accepted", status=status.HTTP_200_OK)
+    #     else:
+    #         return Response(data="friend request not accepted", status=status.HTTP_404_NOT_FOUND)
+    #
+    #     return self.partial_update(request, *args, **kwargs)
 
-    def retrieve(self, request, *args, **kwargs):
-        friend_request_id = kwargs["friend_request_id"]
+    # def get_queryset(self):
+    #     return FriendRequest.objects.filter(requested_to=self.request.user.id)
+    #
+    # def retrieve(self, request, *args, **kwargs):
+    #     friend_request_id = kwargs["friend_request_id"]
+    #
+    #     try:
+    #         friend_request = FriendRequest.objects.get(id=friend_request_id)
+    #     except FriendRequest.DoesNotExist:
+    #         return Response(data="This friend request does not exist.", status=status.HTTP_404_NOT_FOUND)
+    #     return Response(self.get_serializer(friend_request).data)
 
-        try:
-            friend_request = FriendRequest.objects.get(id=friend_request_id)
-        except FriendRequest.DoesNotExist:
-            return Response(data="This friend request does not exist.", status=status.HTTP_404_NOT_FOUND)
-        return Response(self.get_serializer(friend_request).data)
+    # def patch(self, request, *args, **kwargs):
+    #     friend_request_id = kwargs["friend_request_id"]
+    #     friend_request = FriendRequest.objects.get(id=friend_request_id)
+    #
+    #     if friend_request.requested_to == request.user:
+    #         body_unicode = request.body.decode()
+    #         body = json.loads(body_unicode)
+    #         content = body["content"]
+    #
+    #         if content["status"] == "Accepted":
+    #             friend_request.requested_to.friends.add(friend_request.requested_by)
+    #             friend_request.requested_by.friends.add(friend_request.requested_to)
+    #         return Response(data="friend request accepted", status=status.HTTP_200_OK)
+    #     else:
+    #         return Response(data="you don't have access", status=status.HTTP_404_NOT_FOUND)
+    #
+    # We have problem to add requester and requestee to the user model's friends!!!
+    # Will check it later...

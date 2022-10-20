@@ -1,6 +1,5 @@
-from rest_framework import serializers
-
 from users.models import User, FriendRequest
+from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -25,9 +24,3 @@ class FriendRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = FriendRequest
         fields = '__all__'
-
-
-class FriendRequestDetailsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = FriendRequest
-        exclude = ['id', 'requested_to']
