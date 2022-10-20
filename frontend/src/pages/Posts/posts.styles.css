@@ -73,8 +73,8 @@
 .icons{
     margin:10px;
     display:flex;
-    column-gap: 10px;
-    font-size: 0.9rem;
+    column-gap: 20px;
+    font-size: 1.2rem;
     padding: 5px 5px 5px 5px;
 }
 
