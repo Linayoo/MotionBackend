@@ -6,7 +6,7 @@ from django.db import DatabaseError
 
 from users.models import User, FriendRequest
 from users.serializers import UserSerializer, RetrieveFollowerSerializer, RetrieveFolloweeSerializer, \
-    FriendRequestSerializer
+    FriendRequestSerializer, FriendRequestDetailsSerializer
 
 
 # GET & PATCH: /api/users/me/
@@ -80,3 +80,21 @@ class SendFriendRequest(ListCreateAPIView):
                 return Response(data="Success", status=status.HTTP_201_CREATED)
         except DatabaseError or ValueError:
             return Response(data="Oops, something went wrong..", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+# api/social/friends/requests/<int:friend_request_id>/
+# GET: Get details of a friend request
+class FriendRequestDetails(RetrieveAPIView):
+    serializer_class = FriendRequestDetailsSerializer
+
+    def get_queryset(self):
+        return FriendRequest.objects.filter(requested_to=self.request.user.id)
+
+    def retrieve(self, request, *args, **kwargs):
+        friend_request_id = kwargs["friend_request_id"]
+
+        try:
+            friend_request = FriendRequest.objects.get(id=friend_request_id)
+        except FriendRequest.DoesNotExist:
+            return Response(data="This friend request does not exist.", status=status.HTTP_404_NOT_FOUND)
+        return Response(self.get_serializer(friend_request).data)
