@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {changeModalVisibility} from "../../redux/postModalSlice/postModalSlice";
 import {useSelector} from "react-redux";
 import send_svg from "../../assets/svgs/send_button.svg";
 import {changeLastEditedPostText} from "../../redux/userSlice/userSlice";
+import "./sendPostModal.styles.css"
 
 function NewPostModal(props){
     const dispatch=useDispatch()
@@ -17,7 +18,13 @@ function NewPostModal(props){
     const changeModalStatus = () => {
         dispatch(changeModalVisibility())
     }
-
+    const [imageState,setImageState]=useState("")
+    const imageUploadHandler=(event)=>{
+        console.log("1 image uploaded")
+        const image = event.target.files[0]
+        props.fileSelectionHandler(event)
+        setImageState({image:URL.createObjectURL(image)})
+    }
     return(
         <div className={showingStatus ? showingClasses : notShowingClasses}>
             <div className="modal-background"></div>
@@ -29,8 +36,11 @@ function NewPostModal(props){
                     <figure className="image is-48x48">
                         <img className="avatar is-rounded" src={myAvatarUrl} alt="user avatar image"/>
                     </figure>
+                    <div>
+                        <input type="text" defaultValue={props.text} className="new_post_text_outside"/>
+                        {imageState.image?<img id="image_preview_in_post" src={imageState.image}/>:<div/>}
+                    </div>
 
-                    <input type="text" defaultValue={props.text} className="new_post_text_outside"/>
 
                 </section>
                 <footer className="modal-card-foot">
@@ -39,7 +49,7 @@ function NewPostModal(props){
                             <label htmlFor="file-input">
                                 <i className="fa-solid fa-image"></i>
                             </label>
-                            <input type="file" id="file-input" className="new_post_image_upload" onChange={props.fileSelectionHandler}/>
+                            <input type="file" id="file-input" className="new_post_image_upload" onChange={imageUploadHandler}/>
                         </div>
                         <div className="share-link">
                             <i className="fa-solid fa-link"></i>
