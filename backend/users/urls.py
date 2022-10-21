@@ -1,7 +1,7 @@
 from django.urls import path
 
 from users.views import LoggedInUserProfileView, ListLoggedInUserFollowers, ListLoggedInUserFollowees, \
-    SendFriendRequest, FriendRequestDetailsAndAccept, ListAllUsers, ListUserFriends
+    SendFriendRequest, FriendRequestDetailsAndAccept, ListAllUsers, ListUserFriends, GetUserProfile
 
 urlpatterns = [
     path("api/users/me/", LoggedInUserProfileView.as_view()),
@@ -11,4 +11,5 @@ urlpatterns = [
     path("api/social/friends/requests/<int:id>/", FriendRequestDetailsAndAccept.as_view()),
     path("api/social/friends/", ListUserFriends.as_view()),
     path("api/users/", ListAllUsers.as_view()),
+    path("api/users/<int:pk>/", GetUserProfile.as_view()),
 ]
