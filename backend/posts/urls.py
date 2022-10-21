@@ -4,5 +4,5 @@ from posts.views import ListCreatePostView
 
 
 urlpatterns = [
-    path("", ListCreatePostView.as_view()),
+    path("api/social/posts/", ListCreatePostView.as_view()),
 ]
