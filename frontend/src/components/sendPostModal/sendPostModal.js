@@ -30,7 +30,7 @@ function NewPostModal(props){
                         <img className="avatar is-rounded" src={myAvatarUrl} alt="user avatar image"/>
                     </figure>
 
-                    <input type="text" value={props.text} className="new_post_text_outside"/>
+                    <input type="text" defaultValue={props.text} className="new_post_text_outside"/>
 
                 </section>
                 <footer className="modal-card-foot">
