@@ -1,6 +1,7 @@
 from rest_framework import status
 from rest_framework.generics import RetrieveUpdateAPIView, get_object_or_404, RetrieveAPIView, ListCreateAPIView, \
-    RetrieveUpdateDestroyAPIView
+    RetrieveUpdateDestroyAPIView, ListAPIView
+from rest_framework.permissions import IsAdminUser
 from rest_framework.request import Request
 from rest_framework.response import Response
 from django.db import DatabaseError
@@ -138,3 +139,15 @@ class FriendRequestDetailsAndAccept(RetrieveUpdateDestroyAPIView):
     #
     # We have problem to add requester and requestee to the user model's friends!!!
     # Will check it later...
+
+
+# api/social/friends/
+# GET: List all accepted friends
+
+
+# api/users/
+# GET: Get all the users
+class ListAllUsers(ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAdminUser]
