@@ -13,7 +13,6 @@ class Post(models.Model):
         return f'{self.id}: {self.creator}'
 
 
-#
 # class ContentImage(models.Model):
 #     post = models.ForeignKey(Post, blank=True, on_delete=models.CASCADE)
 #     image_url = models.TextField()
