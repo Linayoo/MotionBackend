@@ -8,6 +8,7 @@ from posts.serializers import PostSerializer
 api/social/posts/ POST: user can create a new post by sending post data. He should also be able to share another post.
 """
 
+
 # ListCreateAPIView is for multiple views
 class ListCreatePostView(ListCreateAPIView):
     serializer_class = PostSerializer
@@ -25,6 +26,3 @@ class ListCreatePostView(ListCreateAPIView):
 #     serializer_class = PostSerializer
 #     lookup_field = 'post_id'
 #     permission_classes = [isAuthor]
-
-
-

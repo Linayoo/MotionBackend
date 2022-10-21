@@ -12,6 +12,7 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.id}: {self.creator}'
 
+
 #
 # class ContentImage(models.Model):
 #     post = models.ForeignKey(Post, blank=True, on_delete=models.CASCADE)

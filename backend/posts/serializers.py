@@ -1,8 +1,8 @@
 from posts.models import Post # ContentImage, Comment
 from rest_framework import serializers
 
-class PostSerializer(serializers.ModelSerializer):
 
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ['id', 'content', 'liked_by', 'created', 'updated']
