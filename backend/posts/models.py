@@ -12,11 +12,6 @@ class Post(models.Model):
         return f'{self.id}: {self.creator}'
 
 
-class PostImage(models.Model):
-    image = models.ImageField(null=True, blank=True, upload_to="images/")
-    used_in_post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="images")
-
-#
 # class ContentImage(models.Model):
 #     post = models.ForeignKey(Post, blank=True, on_delete=models.CASCADE)
 #

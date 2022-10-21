@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.generics import RetrieveUpdateAPIView, get_object_or_404, RetrieveAPIView, ListCreateAPIView, \
     RetrieveUpdateDestroyAPIView, ListAPIView
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from django.db import DatabaseError
@@ -158,3 +158,11 @@ class ListAllUsers(ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsAdminUser]
+
+
+# api/users/<int:user_id>/
+# GET: Get specific user profile
+class GetUserProfile(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
