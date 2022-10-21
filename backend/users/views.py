@@ -143,6 +143,13 @@ class FriendRequestDetailsAndAccept(RetrieveUpdateDestroyAPIView):
 
 # api/social/friends/
 # GET: List all accepted friends
+class ListUserFriends(ListAPIView):
+    queryset = User
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        current_user = self.request.user
+        return User.objects.filter(friends=current_user)
 
 
 # api/users/
