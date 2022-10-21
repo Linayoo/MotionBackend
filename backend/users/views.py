@@ -1,5 +1,6 @@
 from rest_framework import status
-from rest_framework.generics import RetrieveUpdateAPIView, get_object_or_404, RetrieveAPIView, ListCreateAPIView
+from rest_framework.generics import RetrieveUpdateAPIView, get_object_or_404, RetrieveAPIView, ListCreateAPIView, \
+    RetrieveUpdateDestroyAPIView
 from rest_framework.request import Request
 from rest_framework.response import Response
 from django.db import DatabaseError
@@ -86,7 +87,8 @@ class SendFriendRequest(ListCreateAPIView):
 # api/social/friends/requests/<int:friend_request_id>/
 # GET: Get details of a friend request
 # PATCH: Accept or Reject an open friend request
-class FriendRequestDetailsAndAccept(RetrieveUpdateAPIView):
+# DELETE: Delete a friend request
+class FriendRequestDetailsAndAccept(RetrieveUpdateDestroyAPIView):
     queryset = FriendRequest.objects.all()
     serializer_class = FriendRequestSerializer
     lookup_field = "id"

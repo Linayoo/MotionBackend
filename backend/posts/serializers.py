@@ -1,4 +1,4 @@
-from posts.models import Post # ContentImage, Comment
+from posts.models import Post  # ContentImage, Comment
 from rest_framework import serializers
 
 
