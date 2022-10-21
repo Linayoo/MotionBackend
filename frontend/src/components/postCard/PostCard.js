@@ -74,8 +74,6 @@ function PostCard(props){
                       </span>
                       <span>Share</span>
                     </span>
-
-
                 </div>
 
             </div>

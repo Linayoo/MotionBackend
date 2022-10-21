@@ -1,0 +1,5 @@
+#image_preview_in_post{
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
