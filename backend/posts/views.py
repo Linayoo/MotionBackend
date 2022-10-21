@@ -1,6 +1,7 @@
 from rest_framework.generics import ListCreateAPIView
 
 from posts.models import Post
+from posts.permission import IsCreater
 from posts.serializers import PostSerializer
 
 # Create your views here.
@@ -26,3 +27,9 @@ class ListCreatePostView(ListCreateAPIView):
 #     serializer_class = PostSerializer
 #     lookup_field = 'post_id'
 #     permission_classes = [isAuthor]
+
+class RetrieveUpdateDestroyPostView(RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    lookup_field = 'post_id'
+    permission_classes = [IsCreater]
