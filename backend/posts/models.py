@@ -8,14 +8,13 @@ class Post(models.Model):
     liked_by = models.ManyToManyField(User, related_name='likes', blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-
     def __str__(self):
         return f'{self.id}: {self.creator}'
 
 
 # class ContentImage(models.Model):
 #     post = models.ForeignKey(Post, blank=True, on_delete=models.CASCADE)
-#     image_url = models.TextField()
+#
 #
 #
 # class Comment(models.Model):

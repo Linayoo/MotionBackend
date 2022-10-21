@@ -41,7 +41,7 @@ function PostCard(props){
                         </div>
                         <div className="media-content">
                             <p className="is-6">{props.post.user.first_name} {props.post.user.last_name}</p>
-                            <p className="is-size-7" >Just now</p>
+                            <p className="is-size-7" >{props.post.created.substring(0,10)}</p>
                         </div>
                     </div>
                 </div>
